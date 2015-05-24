@@ -1,6 +1,6 @@
 {
   "name": "number-input",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple text input control for number values.",
   "directories": {
     "doc": "doc",
