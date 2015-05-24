@@ -1,7 +1,7 @@
 {
   "name": "number-input",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.2",
+  "description": "A simple text input control for number values.",
   "directories": {
     "doc": "doc",
     "test": "tests"

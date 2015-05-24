@@ -1,6 +1,9 @@
 # Number-input
 
-This README outlines the details of collaborating on this Ember addon.
+My first attempt at creating an ember addon
+
+## Description
+A basic input text control that only allows integer or floating decimal numbers with up to two decimal place precision.
 
 ## Installation
 
