@@ -1,16 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.TextField.extend({
-  isValidKeyCode: function(keyCode) {
-    //46 = . char
-    //48...57 = 0...9 chars
-    return keyCode === 46  || (keyCode >= 48 && keyCode <= 57);
-  },
-
   getNewValue: function(e) {
     let keyCode = e.keyCode || e.which;
-    var newChar = this.isValidKeyCode(keyCode) ? String.fromCharCode(keyCode) : "";
-
+    //var newChar = this.isValidKeyCode(keyCode) ? String.fromCharCode(keyCode) : "";
+    var newChar = String.fromCharCode(keyCode);
     return Ember.$(e.currentTarget).val() + newChar;
   },
 
@@ -18,16 +12,12 @@ export default Ember.TextField.extend({
     return this.getNewValue(e).countDecimals() > 2;
   },
 
-  isTab: function(keyCode) {
-    return keyCode === 9;
-  },
-
   isInvalidValue: function(e) {
-    var value = this.getNewValue(e);
+    if (e.altKey || e.metaKey || e.shiftKey || e.ctrlKey) { return false;}
+    if (e.which === 0) {return false;} //arrow keys, etc, in FF
+    if (e.which === 8) {return false;} //backspace
 
-    if (!value) {
-      return !this.isTab(e.keyCode);
-    }
+    var value = this.getNewValue(e);
 
     return isNaN(value) || value.countDecimals() > 2;
   },
